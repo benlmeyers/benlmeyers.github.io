@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ben's Fantastic Website!</title>
+            <style>
+            body {
+                background: rgb(2, 50, 18);
+                color: rgb(0, 1, 0);
+                padding: 10px;
+                font-family: arial;
+            }
+            header {
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+            #all-contents {
+                max-width: 800px;
+                margin: auto;
+            }
+
+            /* navigation menu */
+            nav {
+                background: rgb(192, 100, 188);
+                margin: 0 auto;
+                margin-bottom: 20px;
+                display: flex;
+                padding: 10px;
+                border-radius: 10px 100px / 120px;
+            }
+            nav header {
+                display: flex;
+                align-items: center;
+                color: rgb(255, 255, 255);
+                flex: 1;
+            }
+            nav ul {
+                list-style-image: none;
+            }
+            nav li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            nav a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            /* main container area beneath menu */
+            main {
+                background: rgb(24, 128, 200);
+                display: flex;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            .sidebar img {
+                width: 200px;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            .interests header {
+                font-size: 1.25em;
+            }
+        </style>
+
+</head>
+<body>
+    <div id="all-contents"> 
+        <nav>
+            <header>Ben's Badass Website!</header>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="sidebar">
+            
+                <img src=https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/67873012_10158774871518858_842894276802117632_n.jpg?_nc_cat=100&_nc_oc=AQnkVyWHNq7fzAIfOOXCu0wU1uB3vo0YZNrK_555A9sJjvh1a3m0NtcnFXmfhGrdNW-cPtduKVySR9-wICMw7FrY&_nc_ht=scontent-atl3-1.xx&oh=a1b2fc108a15fff1409a7751c5c41bad&oe=5E230BF2>
+            </div>
+
+            <div class="content">
+                <header>Ben Meyers</header>
+                <p>student at Operation Spark</p>
+                <section class="interests">
+                    <header>Interests</header>
+                    <ul>
+                        <li>Soccer</li>
+                        <li>Basketball</li>
+                        <li>Jigsaw Puzzles</li>
+                    </ul>
+                </section>    
+            </div>
+        </main>
+    </div>
+</body>
+</html>
