@@ -7,13 +7,15 @@
 //1. For loops//
 
 for (let i = 0; i < 5; i++) { /* => this is the basic set-up for a for loop "for" keyword, 
-starting condition, stopping condition, incrementor. */
+starting condition, stopping condition, incrementor. In this example I used '++', because 
+I'm incrementting up, but we can use '--' to increment down or +=2 or -=2 or any number 
+instead of 2, to iterate in either direction by more than 1.*/
     console.log("Hello!"); // => this is the codeblock
    } // => prints "Hello!" 5 times
 for (let i = 100; i < 110; i++) {
     console.log(i);
 } // => prints the numbers 100 -> 109
-for (let i = 12; i >= 5; i--) {
+for (let i = 12; i >= 5; i--) {// => in this example, we increment backwards
     console.log(i);
 } // => prints the numbers 12 -> 5
 var apples = ['Fuji', 'Golden Delicious', 'Granny Smith'];

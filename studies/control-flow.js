@@ -9,7 +9,8 @@ var num = 729;
 if (num < 10) {
     console.log("We got a single digit"); /* => prints "We got a single digit", if the
     number is smaller than 10, if the number is larger than 10, we will continue to the
-    next section. */
+    next section. In this example, the number is larger than 10, so this statement will
+    not run.*/
 }
 
 /**  If statements are usually followed by conditionals, and blocks of code that run
@@ -21,33 +22,40 @@ if (num < 10) {
   else if(num < 100 ) {
     console.log("We got double digits!"); /* => prints "We got double digits!", since we 
     already know it's bigger than 9, from the if statement, we know it's between 10 and 99, 
-    if this is true. */ 
+    if this is true. In this example, the number is larger than 100, so this statement will
+    not run.*/ 
 } else if(num < 1000) {
     console.log("We got a century!"); /* => prints "We got a century!", since we already
     know it's bigger than 99, from the previous if statement, it must be between 100 and 
-    999, if this is true. This is the only one that runs. */
+    999, if this is true. In an if-else-if chain, only one statement will execute.  In my
+    example, this is the only one that runs. The code will break out of the chain, and not
+    look at any other statements.*/
 } else if(num < 10000) {
     console.log("That's four digits, buddy!"); /* => prints "That's four digits, buddy!" 
     Since we already know it's bigger than 999, if it's true to this else-if, it must be
-    4 digits. If it's still false, we will continue to the next section. */
+    4 digits. If it's still false, we will continue to the next section. In this example, 
+    the number our previous statement has run, so this statement will not be read.*/
 }
 
 /**  If statements can run none, or as many else-if statements as you wish.  In 
  *   JavaScript we don't use a "-", but when talking about them we do.  Nobody  
- *   knows why. In my example, I figured 3 else-if statements, was a good length. 
+ *   knows why. In my example, I figured 3 else-if statements, was a good length.
+ *   If any statement in an if-else-if chain is true, that is the only one that runs. 
  */
 
 //3. Else//
 
 else {
     console.log("That's a mighty big number, ya got there!"); /* => prints "That's a 
-    mighty big number, ya got there!" Since we made it past all the other sections. */
+    mighty big number, ya got there!" Since we made it past all the other sections. 
+    In this example, a previous statement has run, so this statement will not be read.*/
 }
 
 /** The else statement is the default statement, and acts as a catch all.  We don't 
- *  need parentheses before the curly braces, since there is no "if" involved.  
- *  JavaScript does not require an else statement to run, but it's almost always a 
- *  good idea, since we don't want to leave emptyhanded if our if statement is false.  
+ *  need parentheses before the curly braces, because it is the default, it doesn't 
+ *  require a condition.  JavaScript does not require an else statement to run, but 
+ *  it's almost always a good idea, since we don't want to leave emptyhanded if our 
+ *  if statement is false.  
  */
 
 //4. Switch//

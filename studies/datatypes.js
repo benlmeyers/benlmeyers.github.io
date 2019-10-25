@@ -7,18 +7,23 @@
 var num = 42;
 console.log(num); // => prints "42"
 
-/** A number is a primitive datatype allowing you to work with numerical values. 
+/**   A number is a primitive datatype allowing you to work with numerical values. 
 *     that can consist of any number of integers and decimal places, and 
 *     should not be surrounded by quotes. Numbers are useful for math equations.
 */
 
 //2.  String//
 var myName = "Ben";
-var longString = "Today is a beautiful day, the sun is shining, and it is not nearly as hot as it has been for a while";
+var longString = `Today is a beautiful day, the sun is shining, 
+and it is not nearly as hot as it has been for a while`;
 console.log(myName); // => prints "Ben"
                   
-/**   A string is a primitive datatype made up of a combination of letters and can contain numbers, 
-*     and must be surrounded by quotes.
+/**   A string is a primitive datatype made up of a combination of letters and can contain 
+*     numbers, and must be surrounded by quotes.  Strings can be surrounded by 'single quotes', 
+*     "double quotes", and `back ticks`.  The main difference between these, is that if the 
+*     string is on multiple lines, it must be in `back ticks`.  Sometimes single or double 
+*     quotes are more useful than the other to not be confused with apostrophes, or each other
+*     for example, when one may be used in bracket notation.
 */
 
 // 3. Boolean//
