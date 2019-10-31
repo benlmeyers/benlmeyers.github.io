@@ -19,8 +19,9 @@ and it is not nearly as hot as it has been for a while`;
 console.log(myName); // => prints "Ben"
                   
 /**   A string is a primitive datatype made up of a combination of letters and can contain 
-*     numbers, and must be surrounded by quotes.  Strings can be surrounded by 'single quotes', 
-*     "double quotes", and `back ticks`.  The main difference between these, is that if the 
+*     numbers, and must be surrounded by quotes.  Every charachter in a string takes up 16 
+*     bits or 2 bytes of memory. Strings can be surrounded by 'single quotes', "double 
+*     quotes", and `back ticks`.  The main difference between these, is that if the 
 *     string is on multiple lines, it must be in `back ticks`.  Sometimes single or double 
 *     quotes are more useful than the other to not be confused with apostrophes, or each other
 *     for example, when one may be used in bracket notation.

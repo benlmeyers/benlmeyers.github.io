@@ -20,7 +20,7 @@ if (num < 10) {
 //2. Else-if//
 
   else if(num < 100 ) {
-    console.log("We got double digits!"); /* => prints "We got double digits!", since we 
+    console.log("We got double digits!"); /* => since we 
     already know it's bigger than 9, from the if statement, we know it's between 10 and 99, 
     if this is true. In this example, the number is larger than 100, so this statement will
     not run.*/ 
@@ -31,7 +31,7 @@ if (num < 10) {
     example, this is the only one that runs. The code will break out of the chain, and not
     look at any other statements.*/
 } else if(num < 10000) {
-    console.log("That's four digits, buddy!"); /* => prints "That's four digits, buddy!" 
+    console.log("That's four digits, buddy!"); /* => 
     Since we already know it's bigger than 999, if it's true to this else-if, it must be
     4 digits. If it's still false, we will continue to the next section. In this example, 
     the number our previous statement has run, so this statement will not be read.*/
@@ -46,9 +46,9 @@ if (num < 10) {
 //3. Else//
 
 else {
-    console.log("That's a mighty big number, ya got there!"); /* => prints "That's a 
-    mighty big number, ya got there!" Since we made it past all the other sections. 
-    In this example, a previous statement has run, so this statement will not be read.*/
+    console.log("That's a mighty big number, ya got there!"); /* => Since we made it 
+    past all the other sections. In this example, a previous statement has run, so 
+    this statement will not be read.*/
 }
 
 /** The else statement is the default statement, and acts as a catch all.  We don't 

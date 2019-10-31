@@ -43,7 +43,7 @@ console.log(myName); // prints => bob
 // NOTE: We can assign and re-assign anything to a variable - we cannot do this with constants //
 
 var myVariable = 1;
-var myVariable = true;
+myVariable = true;
 myVariable = "someString";
 
 // 4. var, let, and const//
@@ -69,12 +69,12 @@ with var */
 
 // 5. Hoisting//
 
-console.log(x * 7); // => prints 28
+console.log(x); // => prints 4
 var x = 4; // => this variable is hoisted to the top for use
 
 /** In javascript while all variables are hoisted to the top of the page, let and const
  *  are kept in the "Temporal Dead Zone".  While, this sounds like a fun Star Wars type
- *  place, it actually isn't.  This means that variables declared using the "var" keyword
- *  can be used anywhere in your code, even before the code reaches the actual spot it
- *  is declared in.
+ *  place, it actually isn't.  However, the var keyword is hoisted with it's value and
+ *  available for use in the global scope, unless it's stuck inside a function, in
+ *  which case, it's function scoped.
  */

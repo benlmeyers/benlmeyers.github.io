@@ -12,16 +12,29 @@ console.log(y); // => prints 19
 x += y; // => assigns x + y to x
 console.log(x); // => prints 24
 
-/**The most basic is "=".But, there can also be many other kinds like addition assignment 
-*  operators such as addition assignment, subtraction assignment, and many others. In the 
-*  example above I've used the addition assignment operator to reassign x to 24.
-*/
+
+/** The most basic is "=". But, there can also be many other kinds that do assignment 
+ *  and something else simultaneously, such as addition assignment, subtraction assignment, 
+ *  multiplication assignment, division assignment, remainder assignment, exponentiation 
+ *  assignment, left shift assignment, right shift assignment, unsigned right shift assignment,
+ *  bitwise AND assignment, bitwise XOR assignment, bitwise OR assignment. In the example
+ *  above I've used the addition assignment operator to add my two variables together, and
+ *  reassign x to 24. It is now this way for later in this section.
+ */
 
 //2. Arithmetic operators//
 
 console.log(y++); // => the ++ operator or addition operator adds 1, so this prints 20
+console.log(1 + 4); /* => This is another way of using the addition operator. This one
+adds two numbers together. This example prints 5. */
 console.log(50 % 7); /* => the % is the remainder operator, this divides the first number 
 by the second and returns the remainder.  Here we get 1. */
+console.log(18 - 10); /* => the - is the subtraction operator. It does standard subtraction 
+math. So this prints 8. */
+console.log(2 * 5); /* => the * is the multiplication operator. It multiplies values by
+eachother, so here we get 10.*/
+console.log(15 / 3); /* => The / is the division operator. It divides the first number
+by the second.  This example gives 5. */
 
 /**  An arithmetic operator takes numerical values (either literals or variables) as their 
 *    operands and returns a single numerical value. 

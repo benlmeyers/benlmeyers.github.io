@@ -72,7 +72,7 @@ var globalVar = 12;
     function childFunc(a, b) { // => parameters are set as a & b
      return a - b; // => subtracts 5 from 12
    }
-console.log(childFunc(globalVar, parentVar))/* => arguments are globalVar & parentVar 
+console.log(childFunc(globalVar, parentVar));/* => arguments are globalVar & parentVar 
 console logs 7 */
 } ()); // => self invokes parentFunc
 
@@ -87,7 +87,20 @@ console logs 7 */
      (See: our meeting-room app for an example!) (ALSO, see: Understanding JavaScript 
      Closures with Ease)*/
     
+var otherGlobalVar = 10; 
+(function otherParentFunc() {
+    var parentVar = 5; // => parentVar is a local variable
+    console.log(parentVar); 
+    function childFunc(a, b) { // => childFunc is the inner function, a closure
+     return a - b; 
+   }
+console.log(childFunc(otherGlobalVar, parentVar)); /* => called using a global variable, 
+and an outer variable. */
+} ());
+    
 /**   A closure is the act of referencing a variable in a parent scope while keeping its
  *    value alive.  Because JavaScript variables can belong to the local or global scope,
- *    closures are useful to make global variables local or private.
+ *    closures are useful to make global variables local or private. You can see that in my 
+ *    example, the childFunc is a closure, because it references variables contained in
+ *    its parent function, and the global function.
  */
