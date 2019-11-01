@@ -68,13 +68,13 @@ with var */
  */
 
 // 5. Hoisting//
-
+x = 4; // == the variable x has been declared below, but here it is assigned
 console.log(x); // => prints 4
-var x = 4; // => this variable is hoisted to the top for use
+var x; // => this variable is hoisted to the top for use
 
 /** In javascript while all variables are hoisted to the top of the page, let and const
  *  are kept in the "Temporal Dead Zone".  While, this sounds like a fun Star Wars type
- *  place, it actually isn't.  However, the var keyword is hoisted with it's value and
- *  available for use in the global scope, unless it's stuck inside a function, in
- *  which case, it's function scoped.
+ *  place, it actually isn't.  However, the var keyword is hoisted and ready to be 
+ *  initialized/assigned and, it is available for use in the global scope, unless 
+ *  it's stuck inside a function, in which case, it's function scoped.
  */

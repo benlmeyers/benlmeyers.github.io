@@ -497,14 +497,14 @@ _.some = function(collection, test) {
  //if the first element in array, use seed as previous result
  //if no seed was given, start on the second element (index 1)
  //after the last iteration, return the value of the final <function> call
-_.reduce = function(array, action, seed){
+_.reduce = function(array, test, seed){
    let seedDefined = 0;
    if (seed === undefined){
        seed = array[0];
        seedDefined = 1;
    }
    for (let i = seedDefined; i < array.length; i++){
-       seed = action(seed, array[i], i);
+       seed = test(seed, array[i], i, array);
    }   return seed;
 };
 
