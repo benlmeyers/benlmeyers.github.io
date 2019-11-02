@@ -33,31 +33,91 @@ var femaleCount = function(array) {
     //use reduce function
     //input: array
     //output: number
-    let fem = 0;
-    for(let i = 0; i < array.length; i++) {
-    if(array[i].gender === 'female') {
-        fem++;
-    }
-    }
-    return fem;
+   return _.reduce(array, function(seed, customerObj, i, arr) {
+      //if customerObj's gender is female add 1
+      if(customerObj.gender === "female") {
+          seed++;
+      } 
+      return seed;
+   }, 0);
 };
 
 var oldestCustomer = function(array) { 
     //find the oldest customer's name
-    //for loop comparing ages
-    console.log(array);
-    for (let i = 0; i < array.length; i++) {
-        return Math.max(customerObj.age);
-    }
+    //input: array of customers
+    //output: string of oldest customer's name
+    //iterate through the array, and compare customer's ages
+    //using reduce, compare current customer's age to previous customer's age
+    //reassign the older one to the previous customer
+    
+    return _.reduce(array, function(previous, current, i) {
+        if(current.age > previous.age) {
+            return current;
+        } else {
+            return previous;
+        }
+    }).name;
 };
 
-var youngestCustomer;
+var youngestCustomer = function(array) {
+//find the youngest customer's name
+//input: array of customers
+//output: array of customers
+//iterate through the array, and compare customer's ages, return the youngest one
+    return _.reduce(array, function(previous, current, i) {
+        if(current.age < previous.age) {
+            return current;
+        } else {
+            return previous;
+        }
+        
+    }).name;
+};
 
-var averageBalance;
+var averageBalance = function(array) {
+//iterate through the array of customers, find their balances
+//use the reduce method to add all their balances together
+//divide by the total number of customers
+    let money = 0;
+    let avgBalance = _.reduce(array, function(seed, customer, i, array) {
+        money = customer.balance.slice(1);
+        money = money.split(',').join('');
+        money = Number.parseFloat(money);
+        return seed += money;
+    }, 0);
+    return avgBalance / array.length;
+};
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter) {
+    //iterate through the array of customers, find how many start with a given
+    //first letter
+    return _.reduce(array, function(seed, customer, i, array) {
+        if (customer.name[0].toLowerCase() === letter.toLowerCase()) {
+            seed ++;
+        }
+        return seed;
+    }, 0);
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter) {
+//iterate through the array of customers, find the given customer
+//find the friends list, and iterate through that comparing the first letter of
+//their names to the given letter
+   let customerMatch = {};
+for(let i = 0; i < array.length; i++) {
+    if(array[i].name === customer){
+        customerMatch = array[i];
+        break;
+    }
+}  
+return  _.reduce(customerMatch.friends, function(seed, current, j, array) {
+        if(current.name[0].toLowerCase() === letter.toLowerCase()) {
+            seed++;
+        }
+        return seed;
+        }, 0);
+};
+
 
 var friendsCount;
 

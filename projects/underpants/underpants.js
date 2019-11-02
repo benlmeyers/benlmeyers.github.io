@@ -168,8 +168,8 @@ _.contains = function(array, value){
 *      -> should log "a" "b" "c" to the console
 */
 _.each = function(collection, functionTest) {
-   console.log(functionTest);
-   console.log(collection);
+   //console.log(functionTest);
+   //console.log(collection);
    if (Array.isArray(collection) === true) {
        for(let i = 0; i < collection.length; i++) {
            functionTest(collection[i], i, collection);
