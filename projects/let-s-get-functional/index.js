@@ -118,16 +118,17 @@ return  _.reduce(customerMatch.friends, function(seed, current, j, array) {
         }, 0);
 };
 
-var friendsCount = function(array) {
+var friendsCount = function(array, name) {
 //Find the customers' names that have a given customer's name in their friends list
 //inputs: array of customers, name to be found
 //ouput: array of customers who have the given name in their friends list
 for (let i = 0; i < array.length; i++) {
-    for(let key in array[i]) {
-        
+        _.reduce(array[i].friends, function(seed, current, j, array) {
+            if(array[i].friends[j] === name){
+                seed.push(name);
+            }
+        }, []);
     }
-}
-
 };
 var topThreeTags;
 //Find the three most common tags among all customers' associated tags
