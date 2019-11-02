@@ -118,12 +118,32 @@ return  _.reduce(customerMatch.friends, function(seed, current, j, array) {
         }, 0);
 };
 
+var friendsCount = function(array) {
+//Find the customers' names that have a given customer's name in their friends list
+//inputs: array of customers, name to be found
+//ouput: array of customers who have the given name in their friends list
+for (let i = 0; i < array.length; i++) {
+    for(let key in array[i]) {
+        
+    }
+}
 
-var friendsCount;
-
+};
 var topThreeTags;
+//Find the three most common tags among all customers' associated tags
+//array of customers
+//array of tags
+
+
+
 
 var genderCount;
+//create a summary of genders
+//input: array of customers
+//output: object with genders as keys, and numbers as values
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
