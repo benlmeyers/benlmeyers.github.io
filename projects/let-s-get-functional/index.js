@@ -130,21 +130,22 @@ for (let i = 0; i < array.length; i++) {
         }, []);
     }
 };
-var topThreeTags;
+var topThreeTags = function(array) {
 //Find the three most common tags among all customers' associated tags
 //array of customers
 //array of tags
 
 
+};
 
-
-var genderCount;
+var genderCount = function(array) {
 //create a summary of genders
 //input: array of customers
 //output: object with genders as keys, and numbers as values
 
 
-
+    
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
