@@ -121,57 +121,60 @@ var friendFirstLetterCount = function(array, customer, letter) {
 };
 
 var friendsCount = function(array, name) {
-        //Find the customers' names that have a given customer's name in their friends list
-        //inputs: array of customers, name to be found
-        //ouput: array of customers who have the given name in their friends list
-        // for (let i = 0; i < array.length; i++) {
-        //         _.reduce(array[i].friends, function(seed, current, j, array) {
-        //             if(array[i].friends[j] === name){
-        //                 seed.push(name);
-        //             }
-        //         }, []);
-        //     }
-        };
-        var topThreeTags = function(array) {
-            // //Find the three most common tags among all customers' associated tags
-            // //array of customers
-            // //array of tags
-            // let TTtags = [];
-            // for(let i = 0; i < array.length; i++) {
-            //   for(let key in array[i]) {
-            //       TTtags.friends.push(array[i])
-            //   }
-            // }
-            // }
-            // console.log('TTtags', TTtags);
-            // let tagCount = _.reduce(array, function(acc, currentTag, i, array) {
-            //     if(acc[currentTag] === undefined){
-            //         acc[currentTag] = 1;
-            //   } else {
-            //     acc[currentTag]++;
-            //   }
-            //   return acc;
-            // }, {});
-            // console.log('tagCount', tagCount)
-            // let nestedArr = [];
-            //     _.each(tagCount, function(seed, tag, object){
-            //   nestedArr.push([tag, seed]);
-            // });      
-            //      console.log(nestedArr.sort(function(a, b){
-            //   return b[1] - a[1];
-            // }));
-            // var resultArr = [];
-            //     for(let i = 0; i < 3; i++){
-            //     resultArr.push(nestedArr[i][0]);
-            };
+    //Find the customers' names that have a given customer's name in their friends list
+    //inputs: array of customers, name to be found
+    //ouput: array of customers who have the given name in their friends list
+    // for (let i = 0; i < array.length; i++) {
+    //         _.reduce(array[i].friends, function(seed, current, j, array) {
+    //             if(array[i].friends[j] === name){
+    //                 seed.push(name);
+    //             }
+    //         }, []);
+    //     }
+};
 
+var topThreeTags = function(array) {
+        // //Find the three most common tags among all customers' associated tags
+        // //array of customers
+        // //array of tags
+
+        var allTags = [];
+        for (let i = 0; i < customers.length; i++) {
+            allTags = allTags.concat(customers[i]['tags']);
+        }
+        let tagCount = _.reduce(allTags, function(acc, currentTag, i, array) {
+            if (acc[currentTag] === undefined) {
+                acc[currentTag] = 1;
+            }
+            else {
+                acc[currentTag]++;
+            }
+            return acc;
+        }, {});
+         //console.log('tagCount', tagCount);
+        
+        let nestedArr = [];
+        
+        _.each(tagCount, function(tag, seed, object) {
+            nestedArr.push([tag, seed]);
+        });
+        
+        nestedArr.sort(function(a, b) {
+            return b[1] - a[1];
+        });
+        
+    //     var resultArr = [];
+    //     for (let i = 0; i < 3; i++) {
+    //         resultArr.push(nestedArr[i][0]);
+    // } 
+    // };
 
 
         var genderCount = function(array) {
             //create a summary of genders
             //input: array of customers
             //output: object with genders as keys, and numbers as values
-};
+        };
 
 
 
