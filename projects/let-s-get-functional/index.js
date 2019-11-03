@@ -155,7 +155,7 @@ var topThreeTags = function(array) {
         
         let nestedArr = [];
         
-        _.each(tagCount, function(tag, seed, object) {
+        _.each(tagCount, function(seed, tag, object) {
             nestedArr.push([tag, seed]);
         });
         
@@ -163,11 +163,11 @@ var topThreeTags = function(array) {
             return b[1] - a[1];
         });
         
-    //     var resultArr = [];
-    //     for (let i = 0; i < 3; i++) {
-    //         resultArr.push(nestedArr[i][0]);
-    // } 
-    // };
+        var resultArr = [];
+        for (let i = 0; i < 3; i++) {
+            resultArr.push(nestedArr[i][0]);
+    } 
+     };
 
 
         var genderCount = function(array) {
