@@ -121,6 +121,20 @@ var friendFirstLetterCount = function(array, customer, letter) {
 };
 
 var friendsCount = function(array, name) {
+    let friends = []; // empty array to gather friends names from
+   for (let k=0; k<array.length; k++){ //loop to go through array to get to obj element
+       for(let j=0; j<array[k].friends.length; j++){ // loop to go through the friends array in each object within main array
+       if(array[k].friends[j].name === name){ // test to see if friends array contains given name
+           // console .log(array[k].friends[j].name);
+           friends.push(array[k].name); // if statement true then push the obj element's name value into empty array
+           // return friends; // return friends array back
+       }
+       }
+   }
+   // console.log(friends);
+   return friends; // return friends array outside of loop (not sure if I need this)
+};
+    
     //Find the customers' names that have a given customer's name in their friends list
     //inputs: array of customers, name to be found
     //ouput: array of customers who have the given name in their friends list
@@ -131,7 +145,7 @@ var friendsCount = function(array, name) {
     //             }
     //         }, []);
     //     }
-};
+    //};
 
 var topThreeTags = function(array) {
         // //Find the three most common tags among all customers' associated tags
@@ -139,6 +153,7 @@ var topThreeTags = function(array) {
         // //array of tags
 
         var allTags = [];
+        let obj = {};
         for (let i = 0; i < customers.length; i++) {
             allTags = allTags.concat(customers[i]['tags']);
         }
@@ -150,13 +165,13 @@ var topThreeTags = function(array) {
                 acc[currentTag]++;
             }
             return acc;
-        }, {});
+        }, obj);
          //console.log('tagCount', tagCount);
         
         let nestedArr = [];
         
         _.each(tagCount, function(seed, tag, object) {
-            nestedArr.push([tag, seed]);
+            nestedArr.push(obj[tag, seed]);
         });
         
         nestedArr.sort(function(a, b) {
@@ -169,13 +184,29 @@ var topThreeTags = function(array) {
     } 
      };
 
-
         var genderCount = function(array) {
             //create a summary of genders
             //input: array of customers
             //output: object with genders as keys, and numbers as values
-        };
-
+            //use reduce
+    let male = 0;
+    let female = 0;
+    let nonBinary = 0;
+    return  _.reduce(array, function(prev, customerObj, i){
+       if (customerObj.gender === "male"){
+           male += 1;
+       } else if (customerObj.gender === "female"){
+           female += 1;
+       } else{
+           nonBinary += 1;
+       }
+       return {
+           male,
+           female,
+           "non-binary": nonBinary
+       };
+   }, 0);
+};
 
 
 
