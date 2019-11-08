@@ -121,7 +121,7 @@ var friendFirstLetterCount = function(array, customer, letter) {
 };
 
 var friendsCount = function(array, name) {
-    let friends = []; // empty array to gather friends names from
+       let friends = []; // empty array to gather friends names from
    for (let k=0; k<array.length; k++){ //loop to go through array to get to obj element
        for(let j=0; j<array[k].friends.length; j++){ // loop to go through the friends array in each object within main array
        if(array[k].friends[j].name === name){ // test to see if friends array contains given name
@@ -134,7 +134,7 @@ var friendsCount = function(array, name) {
    // console.log(friends);
    return friends; // return friends array outside of loop (not sure if I need this)
 };
-    
+
     //Find the customers' names that have a given customer's name in their friends list
     //inputs: array of customers, name to be found
     //ouput: array of customers who have the given name in their friends list
@@ -151,38 +151,69 @@ var topThreeTags = function(array) {
         // //Find the three most common tags among all customers' associated tags
         // //array of customers
         // //array of tags
+   // create an array to hold all tags in
+   let arrTags = [];
+ let newTags =  _.reduce(array,function(prev,curr,i){
+      if(curr.tags !== undefined){
+          arrTags.push(curr.tags)
+          // flatten the nesetd arrays
+      }
+       return  [].concat(...arrTags);
+ });
+ let tags = _.reduce(newTags,function(prev,curr){
+           console.log(prev);
+           if(prev[curr] === undefined){
+               prev[curr] = 1;
+           } else {
+               prev[curr] += 1;
+           } return prev;
+},{});
+var newArray = [];
+_.each(tags,function(count,word,object){
+    newArray.push([word,count]);
+});
+// sort our array highest to lowest
+ newArray.sort(function(a,b){
+   return b[1] - a[1];
+ });
+// console.log(newArray);
+ var final = [];
+ for(var i = 0; i < 3; i++){
+     final.push(newArray[i][0]);
+ } return final;
+}
 
-        var allTags = [];
-        let obj = {};
-        for (let i = 0; i < customers.length; i++) {
-            allTags = allTags.concat(customers[i]['tags']);
-        }
-        let tagCount = _.reduce(allTags, function(acc, currentTag, i, array) {
-            if (acc[currentTag] === undefined) {
-                acc[currentTag] = 1;
-            }
-            else {
-                acc[currentTag]++;
-            }
-            return acc;
-        }, obj);
-         //console.log('tagCount', tagCount);
+    //     var allTags = [];
+    //     let obj = {};
+    //     for (let i = 0; i < customers.length; i++) {
+    //         allTags = allTags.concat(customers[i]['tags']);
+    //     }
+    //     let tagCount = _.reduce(allTags, function(acc, currentTag, i, array) {
+    //         if (acc[currentTag] === undefined) {
+    //             acc[currentTag] = 1;
+    //         }
+    //         else {
+    //             acc[currentTag]++;
+    //         }
+    //         return acc;
+    //     }, obj);
+    //      //console.log('tagCount', tagCount);
         
-        let nestedArr = [];
+    //     let nestedArr = [];
         
-        _.each(tagCount, function(seed, tag, object) {
-            nestedArr.push(obj[tag, seed]);
-        });
+    //     _.each(tagCount, function(seed, tag, object) {
+    //         nestedArr.push(obj[tag, seed]);
+    //     });
         
-        nestedArr.sort(function(a, b) {
-            return b[1] - a[1];
-        });
+    //     nestedArr.sort(function(a, b) {
+    //         return b[1] - a[1];
+    //     });
         
-        var resultArr = [];
-        for (let i = 0; i < 3; i++) {
-            resultArr.push(nestedArr[i][0]);
-    } 
-     };
+    //     var resultArr = [];
+    //     for (let i = 0; i < 3; i++) {
+    //         resultArr.push(nestedArr[i][0]);
+    // } 
+    //  };
 
         var genderCount = function(array) {
             //create a summary of genders

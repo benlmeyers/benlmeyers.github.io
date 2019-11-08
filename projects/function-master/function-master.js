@@ -71,7 +71,7 @@ return object.name.charAt(0).toUpperCase() + object.name.slice(1) + " is a " + o
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-/*Create a function that Should takes an object, if this object has a noises
+/*Create a function that takes an object, if this object has a noises
 array return them as a string separated by a space, if there are no noises 
 return 'there are no noises' */
 function maybeNoises(object) {
