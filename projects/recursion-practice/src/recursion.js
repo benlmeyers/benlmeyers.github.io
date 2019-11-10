@@ -20,26 +20,29 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
-  if(array === undefined){
+  if (array === undefined) {
     return 0;
   }
   //use recursion to add the array together
-  else if(!array.length) {
+  else if (!array.length) {
     return 0;
   }
   return array[0] + sum(array.slice(1));
- };
+};
 
 // 4. Check if a number is even.
 //using recursion check if a number is equal
 var isEven = function(n) {
-  if(n === 1) {
+  if (n === 1) {
     return false;
-  } else if(n === 0) {
+  }
+  else if (n === 0) {
     return true;
-  } else if(n < 0) {
+  }
+  else if (n < 0) {
     return isEven(-n);
-    }return isEven(n - 2);
+  }
+  return isEven(n - 2);
 };
 
 // 5. Sum all integers below a given integer.
@@ -48,11 +51,13 @@ var isEven = function(n) {
 //use if statement to check if numbers are below a given number
 //use recursion to add those numbers together
 var sumBelow = function(n) {
-  if(n === 0){
+  if (n === 0) {
     return 0;
-  } else if(n < 0){
-  return n + 1 + sumBelow(n + 1);
-  } else {
+  }
+  else if (n < 0) {
+    return n + 1 + sumBelow(n + 1);
+  }
+  else {
     return n - 1 + sumBelow(n - 1);
   }
 };
@@ -75,12 +80,12 @@ var sumBelow = function(n) {
 //   }
 // };
 var range = function(x, y) {
-var arr = [];
- if(x === y || y - x === 1 || y - x === 0) {
-   return arr;
- }
-   y = y > x ? y - 1 : y + 1;
-return y === x ? [] : range(x,y).concat(y);
+  var arr = [];
+  if (x === y || y - x === 1 || y - x === 0) {
+    return arr;
+  }
+  y = y > x ? y - 1 : y + 1;
+  return y === x ? [] : range(x, y).concat(y);
 };
 
 // 7. Compute the exponent of a number.
@@ -91,7 +96,8 @@ return y === x ? [] : range(x,y).concat(y);
 var exponent = function(base, exp) {
   if (exp === 0) {
     return 1;
-  } return exp > 0 ? base * exponent(base, exp - 1) : 1 / (base * exponent(base, -1 * exp - 1));
+  }
+  return exp > 0 ? base * exponent(base, exp - 1) : 1 / (base * exponent(base, -1 * exp - 1));
 };
 
 // 8. Determine if a number is a power of two.
@@ -101,9 +107,11 @@ var exponent = function(base, exp) {
 var powerOfTwo = function(n) {
   if (n === 0) {
     return false;
-  } else if (n === 1) {
+  }
+  else if (n === 1) {
     return true;
-  } else {
+  }
+  else {
     return powerOfTwo(n / 2);
   }
 };
@@ -112,70 +120,115 @@ var powerOfTwo = function(n) {
 var reverse = function(string) {
   if (!string) {
     return "";
-  } else {
+  }
+  else {
     return reverse(string.substr(1)) + string.charAt(0);
   }
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-let arr = string.split(" ");
-let newString = arr.join('').toLowerCase();
-//console.log(string);
-var strLen = newString.length;
-if(strLen < 2) {
-  return true;
-} else if (newString[0] === newString[strLen - 1]) {
-  return palindrome(newString.slice(1, strLen - 1) );
-} else {
-  return false;
-}
+  let arr = string.split(" ");
+  let newString = arr.join('').toLowerCase();
+  //console.log(string);
+  var strLen = newString.length;
+  if (strLen < 2) {
+    return true;
+  }
+  else if (newString[0] === newString[strLen - 1]) {
+    return palindrome(newString.slice(1, strLen - 1));
+  }
+  else {
+    return false;
+  }
 };
-  // string.toLowerCase();
-  // if(string[0] === string[string.length - 1]) {
-  //   palindrome()
-  // }
+// string.toLowerCase();
+// if(string[0] === string[string.length - 1]) {
+//   palindrome()
+// }
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 var multiply = function(x, y) {
-  if(x === 0 || y === 0){
+  if (x === 0 || y === 0) {
     return 0;
-} else if (y > 0) {
-  return x + multiply(x, y - 1);
-} else if (y < 0) {
-  return -x + multiply(x, y + 1);
-}
-    
-  };
+  }
+  else if (y > 0) {
+    return x + multiply(x, y - 1);
+  }
+  else if (y < 0) {
+    return -x + multiply(x, y + 1);
+  }
+};
 
 // 15. Write a function that compares each character of two strings and returns true if
 // both are identical.
 // compareStr('house', 'houses') // false
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
-var compareStr = function(str1, str2) {};
-
+var compareStr = function(str1, str2) {
+  if (str1.length === 0 && str2.length === 0) {
+    return true;
+  }
+  else if (str1[0] === str2[0]) {
+    return compareStr(str1.slice(1), str2.slice(1));
+  }
+  else {
+    return false;
+  }
+};
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str) {};
+//edge cases?
+var createArray = function(str) {
+  //create an empty array to be filled with new letters
+  if (str.length === 0) {
+    return [];
+  }
+  else {
+    return [str[0]].concat(createArray(str.slice(1)));
+  }
+};
 
 // 17. Reverse the order of an array
-var reverseArr = function(array) {};
+var reverseArr = array => array.length === 0 || array.length === 1 ? array : array.slice(array.length - 1).concat(reverseArr(array.slice(-array.length, -1)));
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {};
+var buildList = function(value, length) {
+  let arr = [];
+  if (length === 0) {
+    return arr;
+  }
+  else {
+    arr.push(value);
+    return arr.concat(buildList(value, length - 1));
+  }
+};
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {};
+var countOccurrence = function(array, value) {
+  if (!array.length) {
+    return 0;
+  }
+  return (array[0] === value) + countOccurrence(array.slice(1), value);
+};
+
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {};
+var rMap = function(array, callback) {
+  let arr = [];
+  if (!array.length) {
+    return arr;
+  }
+  else {
+    return rMap(array.slice(1), callback(array[0]));
+  }
+};
 
 // 25. Return the Fibonacci number located at index n of the Fibonacci sequence.
 // [0,1,1,2,3,5,8,13,21]
