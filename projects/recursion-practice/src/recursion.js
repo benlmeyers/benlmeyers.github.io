@@ -142,10 +142,6 @@ var palindrome = function(string) {
     return false;
   }
 };
-// string.toLowerCase();
-// if(string[0] === string[string.length - 1]) {
-//   palindrome()
-// }
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
