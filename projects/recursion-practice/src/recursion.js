@@ -291,11 +291,14 @@ var letterTally = function(str, obj) {
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
 var compress = function(list) {
-  // if (!list.length) {
-  //   return list;
-  // } else if () {
-
-
+  let retval = [];
+if (list.length===0){
+  return retval;
+}
+if(list[0]!== list[0+1]){
+  retval.push(list[0]);
+}
+return retval.concat(compress(list.slice(1)));
 };
 
 // 33. Reduce a series of zeroes to a single 0.
@@ -328,14 +331,16 @@ var alternateSign = function(array) {
     return array[1] = -array[1];
   }
   else {
-    return [array[0], array[1]].concat(alternateSign(array.slice(2)));
+    return [array[0], array[1]].push(alternateSign(array.slice(2)));
   }
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {};
+var numToText = function(str) {
+    
+};
 
 // *** EXTRA CREDIT ***
 
