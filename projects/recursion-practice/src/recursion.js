@@ -217,17 +217,13 @@ var countOccurrence = function(array, value) {
   return (array[0] === value) + countOccurrence(array.slice(1), value);
 };
 
-
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
-  let arr = [];
-  if (!array.length) {
-    return arr;
+  if (array.length === 1) { //Originally had (!array.length) and it didn't work
+    return callback(array);
   }
-  else {
-    return rMap(array.slice(1), callback(array[0]));
-  }
+  return [callback(array[0])].concat(rMap(array.slice(1), callback));
 };
 
 // 25. Return the Fibonacci number located at index n of the Fibonacci sequence.
@@ -235,38 +231,106 @@ var rMap = function(array, callback) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {};
+var nthFibo = function(n) {
+  if (n < 0) {
+    return null;
+  }
+  if (n === 1) {
+    return 1;
+  }
+  else {
+    return nthFibo(n - 1) + nthFibo(n - 2);
+  }
+};
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {};
+var capitalizeWords = function(input) {
+  let arr = [];
+  if (input.length === 0) {
+    return arr;
+  }
+  arr.push(input[0].toUpperCase());
+  arr = arr.concat(capitalizeWords(input.slice(1)));
+  return arr;
+};
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {};
+var capitalizeFirst = function(array) {
+  let arr = [];
+  if (!array.length) {
+    return arr;
+  }
+  arr.push(array[0].charAt(0).toUpperCase() + array[0].slice(1));
+  arr = arr.concat(capitalizeFirst(array.slice(1)));
+  return arr;
+};
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {};
+var letterTally = function(str, obj) {
+  let result = Array.from(arguments)[1] || {};
+  if (!str.length) {
+    return result;
+  }
+  if (!result[str[0]]) {
+    result[str[0]] = 1;
+  }
+  else {
+    console.log(result[str[0]], 'hey');
+    result[str[0]]++;
+  }
+  return letterTally(str.slice(1), result);
+};
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
 // elements they should be replaced with a single copy of the element. The order of the
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {};
+var compress = function(list) {
+  // if (!list.length) {
+  //   return list;
+  // } else if () {
+
+
+};
 
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {};
+var minimizeZeroes = function(array) {
+  if (array.length === 0) {
+    return array;
+  }
+  else if (minimizeZeroes(array.slice(1))[0] === 0 && array[0] === 0) {
+    return minimizeZeroes(array.slice(1));
+  }
+  else {
+    return [array[0]].concat(minimizeZeroes(array.slice(1)));
+  }
+};
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {};
+var alternateSign = function(array) {
+  if (array.length === 0) {
+    return array;
+  }
+  else if (array[0] < 0) {
+    return array[0] = -array[0];
+  }
+  else if (array[1] > 0) {
+    return array[1] = -array[1];
+  }
+  else {
+    return [array[0], array[1]].concat(alternateSign(array.slice(2)));
+  }
+};
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
