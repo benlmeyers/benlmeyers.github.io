@@ -45,6 +45,8 @@ _.identity = function(value) {
 _.typeOf = function(value){
    if(Array.isArray(value) === true){
        return 'array';
+   }else if (value instanceof Date === true){
+    return "date";
    }else if (value === null){
        return 'null';
    }else{
